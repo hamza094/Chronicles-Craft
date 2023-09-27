@@ -33,3 +33,8 @@ Route::middleware([
         return Inertia::render('Dashboard');
     })->name('dashboard');
 });
+
+
+Route::resource('blog', App\Http\Controllers\BlogController::class);
+
+Route::resource('comment', App\Http\Controllers\CommentController::class)->only('store', 'edit', 'destroy');

@@ -1,0 +1,22 @@
+models:
+ Blog:
+  name: string:100
+  content: text:1000
+  visits: int
+  status: boolean
+  relationships:
+   hasMany: Comment
+   belongsTo: User
+
+ Comment:
+  body: text:300
+  approve: boolean
+  relationships:
+    belongsTo: Blog, User
+
+controllers:
+  Blog:
+    resource: index, create, store, show, edit, update, destroy 
+
+  Comment:
+   resource: store, edit, destroy,  

@@ -1,0 +1,22 @@
+created:
+    - app/Http/Controllers/BlogController.php
+    - app/Http/Controllers/CommentController.php
+    - database/factories/BlogFactory.php
+    - database/factories/CommentFactory.php
+    - database/migrations/2023_09_27_200227_create_blogs_table.php
+    - database/migrations/2023_09_27_200228_create_comments_table.php
+    - app/Models/Blog.php
+    - app/Models/Comment.php
+    - tests/Feature/Http/Controllers/BlogControllerTest.php
+    - tests/Feature/Http/Controllers/CommentControllerTest.php
+    - resources/views/blog/index.blade.php
+    - resources/views/blog/create.blade.php
+    - resources/views/blog/show.blade.php
+    - resources/views/blog/edit.blade.php
+    - resources/views/comment/edit.blade.php
+updated:
+    - routes/web.php
+models:
+    User: { name: string, email: string, email_verified_at: 'datetime nullable', password: string, two_factor_secret: 'text nullable', two_factor_recovery_codes: 'text nullable', two_factor_confirmed_at: 'datetime nullable', remember_token: 'string:100 nullable', current_team_id: 'biginteger unsigned nullable', profile_photo_path: 'string:2048 nullable' }
+    Blog: { name: 'string:100', content: 'text:1000', visits: int, status: boolean, relationships: { hasMany: Comment, belongsTo: User } }
+    Comment: { body: 'text:300', approve: boolean, relationships: { belongsTo: 'Blog, User' } }
